@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { MainModule } from './main';
 import { CommonAppModule } from './common-app';
-import { GfiCoreModule, LoggerService } from '../gfi-core';
+import { GfiCoreModule, LoggerService, ERROR_LEVEL } from '../gfi-core';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -17,7 +17,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule, GfiCoreModule, MainModule, CommonAppModule,
   ],
   providers: [
-    LoggerService
+    LoggerService,
+    {provide: ERROR_LEVEL, useValue: 0 },
   ],
   bootstrap: [AppComponent]
 })

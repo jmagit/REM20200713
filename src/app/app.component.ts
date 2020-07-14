@@ -10,9 +10,9 @@ export class AppComponent {
   title = 'Hola mundo';
 
   constructor(private log: LoggerService) {
-    log.error('Esto es un error');
-    log.warn('Esto es un warn');
-    log.info('Esto es un info');
-    log.log('Esto es un log');
+    // log.error('Esto es un error');
+    // log.warn('Esto es un warn');
+    // log.info('Esto es un info');
+    // log.log('Esto es un log');
   }
 }

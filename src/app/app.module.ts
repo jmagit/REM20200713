@@ -7,6 +7,7 @@ import { MainModule } from './main';
 import { CommonAppModule } from './common-app';
 import { GfiCoreModule, LoggerService, ERROR_LEVEL } from '../gfi-core';
 import { AppComponent } from './app.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { AppComponent } from './app.component';
   ],
   providers: [
     LoggerService,
-    {provide: ERROR_LEVEL, useValue: 0 },
+    {provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL },
   ],
   bootstrap: [AppComponent]
 })

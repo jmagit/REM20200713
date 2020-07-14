@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { MainModule } from './main';
+import { CommonAppModule } from './common-app';
+import { GfiCoreModule } from '../gfi-core';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -9,8 +13,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule, FormsModule,
+    AppRoutingModule, GfiCoreModule, MainModule, CommonAppModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

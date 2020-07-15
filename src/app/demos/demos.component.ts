@@ -10,7 +10,49 @@ import { Unsubscribable } from 'rxjs';
 export class DemosComponent implements OnInit, OnDestroy {
   private suscriptor: Unsubscribable;
 
+  nombre = 'mundo';
+  listado = [
+    { id: 1, nombre: 'Madrid'},
+    { id: 2, nombre: 'BARCELONA'},
+    { id: 3, nombre: 'bilbao'},
+    { id: 4, nombre: 'ValenciA'},
+  ];
+  idProvincia = 2;
+
+  resultado: string = null;
+  visible = true;
+  estetica = { importante: true, error: false, urgente: true };
+
+  fontsize = 24;
+
   constructor(public vm: NotificationService) { }
+
+  saluda() {
+    this.resultado = `Hola ${this.nombre}`;
+  }
+  despide() {
+    this.resultado = `Adios ${this.nombre}`;
+  }
+  di(algo: string) {
+    this.resultado = `Dice ${algo}`;
+  }
+
+  cambia() {
+    this.visible = !this.visible;
+    this.estetica.importante = !this.estetica.importante;
+    this.estetica.error = !this.estetica.error;
+  }
+
+  calcula(a: number, b: number): number {
+    return a + b;
+  }
+
+  add(provincia: string) {
+    const id = this.listado.length > 0 ?
+      (this.listado[this.listado.length - 1].id + 1) : 1;
+    this.listado.push({ id, nombre: provincia});
+    this.idProvincia = id;
+  }
 
   ngOnInit(): void {
     // this.suscriptor = this.vm.Notificacion.subscribe(n => {

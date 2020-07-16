@@ -10,11 +10,13 @@ import { GfiCoreModule, LoggerService, ERROR_LEVEL } from '../gfi-core';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { DemosComponent } from './demos/demos.component';
+import { DinamicoComponent } from './dinamico/dinamico.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemosComponent
+    DemosComponent,
+    DinamicoComponent
   ],
   imports: [
     BrowserModule, FormsModule,

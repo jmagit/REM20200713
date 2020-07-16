@@ -1,0 +1,28 @@
+<form #miForm="ngForm">
+  <p>
+    <label for="id">Código: </label>
+    <input type="number" id="id" name="id" [(ngModel)]="elemento.id" #id="ngModel" required>
+    <span class="error" [hidden]="!id.hasError('required') || miForm.pristine">Es obligatorio</span>
+    <br>
+    <label for="nombre">Nombre: </label>
+    <input type="text" id="nombre" name="nombre" [(ngModel)]="elemento.nombre" #nombre="ngModel"
+      required minlength="2" maxlength="10" uppercase >
+    <span class="error" [hidden]="!nombre?.errors?.required">Es obligatorio</span>
+    <span class="error" [hidden]="!nombre?.errors?.minlength && !nombre?.errors?.maxlength">Debe tener entre 2 y 10 letras.</span>
+    <span class="error" [hidden]="!nombre?.errors?.uppercase">{{nombre?.errors?.uppercase}}</span>
+    <br>
+    <label for="descripcion">Descripcion: </label>
+    <input type="text" id="descripcion" name="descripcion" [(ngModel)]="elemento.descripcion" #descripcion="ngModel" minlength="2" maxlength="10">
+    <span class="error" [hidden]="!descripcion?.errors?.minlength && !descripcion?.errors?.maxlength">Debe tener entre 2 y 10 letras.</span>
+    <br>
+    <label for="precio">Precio:</label>
+    <input type="number" id="precio" name="precio" [(ngModel)]="elemento.precio" #precio="ngModel" min="0" >
+    <span class="error" [hidden]="!precio?.errors?.min">No debe ser negativo.</span>
+  </p>
+  <p>
+    <input type="button" value="Enviar" [disabled]="miForm.invalid" (click)="send()">
+    <input type="button" value="Volver" (click)="cancel()">
+  </p>
+</form>
+<input type="button" value="Cargar" (click)="load()">
+{{elemento | json}}

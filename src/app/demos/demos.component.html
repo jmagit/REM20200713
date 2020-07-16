@@ -1,6 +1,6 @@
 <h1>Hola {{nombre | elipsis:20 | uppercase}}</h1>
 <p>
-  <input type="text" [(ngModel)]="nombre" >
+  <input type="text" [(ngModel)]="Nombre" >
   <input class="btn btn-info" type="button" value="saluda" (click)="saluda()" >
   <input class="btn btn-info" type="button" value="despide" (click)="despide()" >
   <input class="btn btn-info" type="button" value="di algo" (click)="di('algo')" >
@@ -39,4 +39,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus aspernat
   <button (click)="add(txtProvincia.value)">Add</button>
 </p>
 
+<gfi-sizer (sizeChange)="fontsize = $event"></gfi-sizer>
+<p [style.font-size.px]="fontsize">
 {{listado | json}}
+</p>

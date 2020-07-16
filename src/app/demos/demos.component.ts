@@ -12,10 +12,10 @@ export class DemosComponent implements OnInit, OnDestroy {
 
   nombre = 'mundo';
   listado = [
-    { id: 1, nombre: 'Madrid'},
-    { id: 2, nombre: 'BARCELONA'},
-    { id: 3, nombre: 'bilbao'},
-    { id: 4, nombre: 'ValenciA'},
+    { id: 1, nombre: 'Madrid' },
+    { id: 2, nombre: 'BARCELONA' },
+    { id: 3, nombre: 'bilbao' },
+    { id: 4, nombre: 'ValenciA' },
   ];
   idProvincia = 2;
 
@@ -27,8 +27,21 @@ export class DemosComponent implements OnInit, OnDestroy {
 
   constructor(public vm: NotificationService) { }
 
+  public get Nombre(): string {
+    return this.nombre;
+  }
+  public set Nombre(valor: string) {
+    if (this.nombre !== valor) {
+      if (this.nombre?.length < 3) {
+        this.vm.add("nombre corto");
+        return;
+      }
+      this.nombre = valor;
+    }
+  }
   saluda() {
-    this.resultado = `Hola ${this.nombre}`;
+    this.resultado = `Hola ${this.Nombre}`;
+    this.Nombre = 'algo';
   }
   despide() {
     this.resultado = `Adios ${this.nombre}`;
@@ -50,7 +63,7 @@ export class DemosComponent implements OnInit, OnDestroy {
   add(provincia: string) {
     const id = this.listado.length > 0 ?
       (this.listado[this.listado.length - 1].id + 1) : 1;
-    this.listado.push({ id, nombre: provincia});
+    this.listado.push({ id, nombre: provincia });
     this.idProvincia = id;
   }
 

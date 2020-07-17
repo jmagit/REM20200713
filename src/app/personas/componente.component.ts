@@ -16,7 +16,7 @@ export class PersonasComponent implements OnInit {
 }
 @Component({
   selector: 'app-personas-list',
-  templateUrl: './tmpl-list.component.html',
+  templateUrl: './tmpl-list.component.rutas.html',
   styleUrls: ['./componente.component.css']
 })
 export class PersonasListComponent implements OnInit {

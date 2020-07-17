@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { NotificationService } from '../common-services';
 import { LoggerService } from 'src/gfi-core';
 import { RESTDAOService, ModoCRUD } from '../base-code/crud';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class PersonasViewModelService {
 
   constructor(protected notify: NotificationService,
     protected out: LoggerService,
-    protected dao: PersonasDAOService, ) { }
+    protected dao: PersonasDAOService, protected router: Router ) { }
 
   public get Modo() { return this.modo; }
   public get Listado() { return this.listado; }
@@ -72,7 +73,8 @@ export class PersonasViewModelService {
   public cancel() {
     this.elemento = {};
     this.idOriginal = null;
-    this.list();
+    this.router.navigateByUrl('/personas');
+    //this.list();
   }
 
   public send() {

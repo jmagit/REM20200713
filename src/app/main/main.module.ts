@@ -3,14 +3,16 @@ import { CommonModule } from '@angular/common';
 import { NotificationComponent } from './notification/notification.component';
 import { CommonServicesModule } from '../common-services';
 import { HomeComponent } from './home/home.component';
-
+import { AjaxWaitComponent } from './ajax-wait';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [NotificationComponent, HomeComponent],
-  exports: [NotificationComponent, HomeComponent],
+  declarations: [NotificationComponent, HomeComponent, AjaxWaitComponent, PageNotFoundComponent, ],
+  exports: [NotificationComponent, HomeComponent, AjaxWaitComponent, PageNotFoundComponent],
   imports: [
-    CommonModule, CommonServicesModule,
+    CommonModule, CommonServicesModule, RouterModule.forRoot([])
   ]
 })
 export class MainModule {

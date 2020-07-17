@@ -81,4 +81,23 @@ export class DemosComponent implements OnInit, OnDestroy {
     }
   }
 
+  // tslint:disable:member-ordering
+  idiomas = [
+    { codigo: 'es', region: 'España' },
+    { codigo: 'pt', region: 'Portuges' },
+    { codigo: 'en-US', region: 'USA' }
+  ];
+  idioma = this.idiomas[0].codigo;
+  calculos: any[] = [];
+  valCalculadora = 666;
+  // tslint:enable:member-ordering
+
+  ponResultado(origen: string, valor: any) {
+    this.calculos.push({
+      pos: this.calculos.length + 1,
+      origen,
+      valor
+    });
+  }
+
 }

@@ -51,5 +51,35 @@ export class MinValidator implements Validator,
   }
 }
 
+export const MAX_VALIDATOR: any = {
+  provide: NG_VALIDATORS,
+  useExisting: forwardRef(() => MaxValidator),
+  multi: true
+};
+@Directive({
+  selector: '[max][formControlName],[max][formControl],[max][ngModel]',
+  providers: [MAX_VALIDATOR],
+  host: { '[attr.max]': 'max ? max : null' }
+})
+export class MaxValidator implements Validator,
+  OnChanges {
+  private _validator !: ValidatorFn;
+  private _onChange !: () => void;
+  @Input() max !: string;
+  ngOnChanges(changes: SimpleChanges): void {
+      if ('max' in changes) {
+          this._createValidator();
+          if (this._onChange) { this._onChange(); }
+      }
+  }
+  validate(control: AbstractControl): ValidationErrors | null {
+      return this.max == null ? null : this._validator(control);
+  }
+  registerOnValidatorChange(fn: () => void): void { this._onChange = fn; }
 
-export const MIS_VALIDADORES = [ UpperCaseValidator, MinValidator, ];
+  private _createValidator(): void {
+      this._validator = Validators.max(parseInt(this.max, 10));
+  }
+}
+
+export const MIS_VALIDADORES = [ UpperCaseValidator, MinValidator, MaxValidator, ];

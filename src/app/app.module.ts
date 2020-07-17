@@ -12,6 +12,8 @@ import { MainModule, AjaxWaitInterceptor } from './main';
 import { CommonAppModule } from './common-app';
 import { CommonServicesModule } from './common-services';
 import { GfiCoreModule, LoggerService, ERROR_LEVEL } from '../gfi-core';
+import { PersonasModule } from './personas';
+import { BlogModule } from './blog';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { DemosComponent } from './demos/demos.component';
@@ -33,6 +35,7 @@ import { LibrosComponent } from './libros/libros.component';
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     AppRoutingModule, GfiCoreModule, MainModule, CommonAppModule, CommonServicesModule,
+    PersonasModule, BlogModule,
   ],
   providers: [
     LoggerService,

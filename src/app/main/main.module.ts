@@ -6,11 +6,12 @@ import { HomeComponent } from './home/home.component';
 import { AjaxWaitComponent } from './ajax-wait';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
-  declarations: [NotificationComponent, HomeComponent, AjaxWaitComponent, PageNotFoundComponent, ],
-  exports: [NotificationComponent, HomeComponent, AjaxWaitComponent, PageNotFoundComponent],
+  declarations: [NotificationComponent, HomeComponent, AjaxWaitComponent, PageNotFoundComponent, HeaderComponent, ],
+  exports: [NotificationComponent, HomeComponent, AjaxWaitComponent, PageNotFoundComponent, HeaderComponent],
   imports: [
     CommonModule, CommonServicesModule, RouterModule.forRoot([])
   ]

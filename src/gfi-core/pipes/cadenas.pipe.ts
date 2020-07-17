@@ -9,4 +9,14 @@ export class ElipsisPipe implements PipeTransform {
   }
 }
 
-export const PIPES_CADENAS = [ElipsisPipe, ];
+@Pipe({name: 'striptags'})
+export class StripTagsPipe implements PipeTransform {
+
+  transform(text: string, ...allowedTags: any[]): string {
+    return allowedTags.length > 0
+      ? text.replace(new RegExp(`<(?!\/?(${allowedTags.join('|')})\s*\/?)[^>]+>`, 'g'), '')
+      : text.replace(/<(?:.|\s)*?>/g, '');
+  }
+}
+
+export const PIPES_CADENAS = [ElipsisPipe, StripTagsPipe, ];
